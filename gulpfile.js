@@ -9,7 +9,8 @@ gulp.task('html', function(){
 	console.log('HTML task is ok');
 });
 gulp.task('styles', function(){
-  console.log('css sheet updated');
+  return gulp.source('./app/assets/styles/styles.css').
+  .pipe(gulp.dest('./app/temp/styles'));
 });
 
 gulp.task('watch', function(){
