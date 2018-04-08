@@ -1,5 +1,10 @@
 var gulp = require('gulp');
 var watch = require('gulp-watch');
+var postcss = require('gulp-postcss');
+var autoprefixer = require('autoprefixer');
+var cssvars = require('postcss-simple-vars');
+var nested = require('postcss-nested');
+var cssImport = require('postcss-import');
 
 gulp.task('default', function(){
 	console.log('The Default task is working');
@@ -9,7 +14,8 @@ gulp.task('html', function(){
 	console.log('HTML task is ok');
 });
 gulp.task('styles', function(){
-  return gulp.source('./app/assets/styles/styles.css').
+  return gulp.src('./app/assets/styles/styles.css')
+   .pipe(postcss([cssImport,cssvars,nested,autoprefixer]))	
   .pipe(gulp.dest('./app/temp/styles'));
 });
 

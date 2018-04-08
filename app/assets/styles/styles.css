@@ -1,5 +1,4 @@
-h1 {
-  color:red;
-}
+@import "normalize.css";
+@import "base/_global";
+@import "modules/_large-hero";
 
-h2 {font-size: 1.1rem;}
